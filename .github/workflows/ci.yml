@@ -215,15 +215,6 @@ jobs:
           # B2_VARIANT: ${{matrix.variant}}
         run: source ci/github/install.sh
 
-      - name: Customization
-        run: |
-          set -xe
-          pwd
-          pushd $BOOST_ROOT/libs
-          git clone https://github.com/CPPAlliance/url -b develop
-          popd
-          pwd
-
       - name: Setup coverage collection
         if: matrix.coverage
         run: ci/github/codecov.sh "setup"
